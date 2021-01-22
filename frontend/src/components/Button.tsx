@@ -1,11 +1,11 @@
 interface props {
   text: string;
-  onClick: (e: any) => any;
+  onClick?: (e: any) => any;
 }
 
 const Button = (props: props) => {
   return (
-    <button onClick={props.onClick} className="btn btn-dark">
+    <button type="submit" onClick={props.onClick} className="btn btn-dark">
       {props.text}
     </button>
   );

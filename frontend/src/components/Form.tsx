@@ -1,22 +1,52 @@
+import { useState } from "react";
 import Button from "./Button";
+import fetch from "node-fetch";
 
-interface PropTypes {
-  label: string;
-}
+const Form = () => {
+  const [formState, setFormState] = useState({ userName: "", userMessage: "" });
+  const changeHandler = (e: any) => {
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+  };
 
-const onClick = (e: any): any => {
-  console.log(e);
-};
+  const body = {
+    message: formState.userMessage,
+    username: formState.userName,
+  };
 
-const Form = (props: PropTypes) => {
+  const submitHandler = async (e: any) => {
+    await fetch("http://10.0.0.145:5000/api/newpost", {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "content-type": "application/json",
+      },
+    }).then(() => console.log("request sent"));
+  };
+
   return (
-    <div>
-      <form>
-        <label>{props.label}</label>
-        <input type="text" name={props.label} />
-      </form>
-      <Button onClick={onClick} text="submit" />
-    </div>
+    <form onSubmit={submitHandler}>
+      <label>
+        User Name:
+        <input
+          type="text"
+          name="userName"
+          value={formState.userName}
+          onChange={changeHandler}
+        />
+      </label>
+      <br />
+      <br />
+      <label>
+        Message:
+        <textarea
+          name="userMessage"
+          value={formState.userMessage}
+          onChange={changeHandler}
+        />
+      </label>
+      <br />
+      <Button text="submit" />
+    </form>
   );
 };
 
