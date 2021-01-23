@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
-import fetch from "node-fetch";
+import axios from "axios";
 
 const Form = () => {
   const [formState, setFormState] = useState({ userName: "", userMessage: "" });
@@ -13,14 +13,11 @@ const Form = () => {
     username: formState.userName,
   };
 
-  const submitHandler = async (e: any) => {
-    await fetch("http://10.0.0.145:5000/api/newpost", {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: {
-        "content-type": "application/json",
-      },
-    }).then(() => console.log("request sent"));
+  const submitHandler = () => {
+    axios
+      .post("http://10.0.0.145:5000/api/newpost", { body })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   return (

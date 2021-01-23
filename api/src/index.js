@@ -34,8 +34,9 @@ app.get("/posts", async (req, res) => {
 });
 
 app.post("/api/newpost", (req, res) => {
+  console.log(req.body);
   Post.create({
-    message: req.body.message.toString().trim(),
-    username: req.body.username.toString().trim(),
+    message: req.body.body.message.trim(),
+    username: req.body.body.username.trim(),
   }).then(() => res.send("Saved post to database"));
 });
