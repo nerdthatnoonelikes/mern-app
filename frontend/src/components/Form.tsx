@@ -23,19 +23,19 @@ const Form = () => {
   return (
     <form onSubmit={submitHandler}>
       <label>
-        User Name:
+        UserName:
         <input
-          type="text"
+	  className="text"
           name="userName"
           value={formState.userName}
           onChange={changeHandler}
         />
       </label>
-      <br />
-      <br />
+    <br />
       <label>
         Message:
         <textarea
+	  className="text"
           name="userMessage"
           value={formState.userMessage}
           onChange={changeHandler}

@@ -5,7 +5,7 @@ interface props {
 
 const Button = (props: props) => {
   return (
-    <button type="submit" onClick={props.onClick} className="btn btn-dark">
+    <button type="submit" onClick={props.onClick} className="btn">
       {props.text}
     </button>
   );

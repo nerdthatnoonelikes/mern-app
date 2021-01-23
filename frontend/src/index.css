@@ -3,8 +3,36 @@ h1 {
 }
 
 .post {
-  background: #f4f4f4;
+  background: #36393f;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+.post:hover {
+  background: #282c31;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.color {
+  color: white;
+  background-color: #282c31; 
+}
+
+.btn {
+  color: white;
+  background-color: #7289da;
+}
+
+.btn:hover {
+  background-color: #5267b2;
+  color: white;
+}
+
+.text {
+  background-color: #40444b;
+  outline: 0px;
+  border-radius: 5px;
 }
