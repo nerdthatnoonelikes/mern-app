@@ -35,17 +35,11 @@ app.get("/posts", async (req, res) => {
 
 app.post("/api/newpost", (req, res) => {
   if (req.body.body.message.trim() === "") {
-    return res.json({
-      status: 400,
-      message: "Bad Request",
-    });
+    return res.status(400);
   }
 
   if (req.body.body.username.trim() === "") {
-    return res.json({
-      status: 400,
-      message: "Bad Request",
-    });
+    return res.status(400);
   }
 
   Post.create({

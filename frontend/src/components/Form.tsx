@@ -17,15 +17,13 @@ const Form = () => {
     axios
       .post("http://10.0.0.145:5000/api/newpost", { body })
       .then((res) => {
-        if (res.status === 400) {
-          return <p>{res.status}</p>;
-        }
+        console.log(res);
       })
       .catch((err) => console.log(err));
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form>
       <label>
         UserName:
         <input
@@ -46,7 +44,7 @@ const Form = () => {
         />
       </label>
       <br />
-      <Button text="submit" />
+      <Button type="button" text="submit" onClick={submitHandler} />
     </form>
   );
 };

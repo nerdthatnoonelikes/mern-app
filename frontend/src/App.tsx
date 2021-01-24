@@ -23,7 +23,7 @@ function App() {
       <h1>Twitter Implementation</h1>
       <Form />
       <br />
-      <Button text="Get Posts" onClick={onClick} />
+      <Button text="Get Posts" type="submit" onClick={onClick} />
       {posts.length > 0 &&
         posts.map((post) => (
           // @ts-ignore
