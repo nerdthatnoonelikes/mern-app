@@ -16,7 +16,11 @@ const Form = () => {
   const submitHandler = () => {
     axios
       .post("http://10.0.0.145:5000/api/newpost", { body })
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.status === 400) {
+          return <p>{res.status}</p>;
+        }
+      })
       .catch((err) => console.log(err));
   };
 
@@ -25,17 +29,17 @@ const Form = () => {
       <label>
         UserName:
         <input
-	  className="text"
+          className="text"
           name="userName"
           value={formState.userName}
           onChange={changeHandler}
         />
       </label>
-    <br />
+      <br />
       <label>
         Message:
         <textarea
-	  className="text"
+          className="text"
           name="userMessage"
           value={formState.userMessage}
           onChange={changeHandler}
