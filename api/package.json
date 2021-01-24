@@ -12,6 +12,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-rate-limit": "^5.2.3",
     "moment": "^2.29.1",
     "mongoose": "^5.11.13",
     "morgan": "^1.10.0"

@@ -2,8 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const morgan = require("morgan");
+const ratelimit = require("express-rate-limit");
 
 const app = express();
+
+app.use(rateLimit({
+  windowMs: 10 * 1000, 
+  max: 1
+}));
 
 app.use(cors());
 app.use(morgan("tiny"));
